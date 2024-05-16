@@ -1,0 +1,9 @@
+{
+  "manifest_version": 3,
+  "version": "1.1.0",
+  "name": "Leads Tracker",
+  "action": {
+    "default_popup": "struct.html",
+    "default_icon": "icons8-sales-48.png"
+  }
+}
