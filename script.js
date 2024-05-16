@@ -1,7 +1,7 @@
 // some coding for an extension....
 let myLeads = [];
 const inputEl = document.getElementById("input-el")
-const inputBtn = document.getElementById("input-btn")
+const inputBtn = document.getElementById("save-btn")
 const ulEl = document.getElementById("ul-el")
 const delbtn = document.getElementById("del-btn")
  let myleadsstorage = JSON.stringify("myLeads") ;

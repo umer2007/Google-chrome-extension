@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
 body{
     margin: 0;
     padding: 10px;
@@ -12,35 +13,53 @@ body{
     height: 35px;
     box-sizing: border-box;
     padding: 3px 8px;
+    font-family: 'Poppins',sans-serif;
+    font-weight: bold;
 }   
-#input-btn{
-    background: #5f9341;
-    border-style: none; 
-    padding:  10px;
+#save-btn{
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 6px 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 400;
     color: white;
-    font-size: 16px;    
-    cursor: pointer;
+    background-color: rgb(93, 93, 236);
+    margin: 10px;
 }  
+#save-btn:hover{ 
+    background-color: white;
+    color: blue;
+    transition: 0.1s;
+  }
 #del-btn{
-    background: white;
-    border-style: none; 
-    padding:  10px;
-    color: #5f9341;
-    font-size: 16px;    
-    cursor: pointer;
+        border: 2px solid black;
+        border-radius: 5px;
+        padding: 6px 10px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-weight: 400;
+        color: white;
+        background-color: rgb(93, 93, 236);
+        margin: 10px;
+      
 
+}
+#del-btn:hover{
+    background-color: white;
+    color: blue;
+    transition: 0.1s;
 } 
 #container{
     border: #5f9341;
 }
 li{
-   text-decoration: none;
+    text-decoration: dotted;
     color: grey;
     font-weight: 600;
 }
 .buttons{
     display: flex;
     margin-top: 10px;
+    margin-left: -10px;
 }
 #del-btn{
     margin-left: 5px;
