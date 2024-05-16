@@ -1,5 +1,6 @@
 // some coding for an extension....
 let myLeads = [];
+let oldLeads = [];
 const inputEl = document.getElementById("input-el")
 const inputBtn = document.getElementById("save-btn")
 const ulEl = document.getElementById("ul-el")
@@ -10,10 +11,10 @@ let leadsfromstorage = JSON.parse(localStorage.getItem("myLeads"))
 
 if(leadsfromstorage ){
     myLeads = leadsfromstorage
-    renderleads(myLeads)
+    render(myLeads)
  }
 
- function renderleads() {
+ function render(myLeads) {
     let listItems = "";
     for (let i = 0; i < myLeads.length; i++) {
         listItems += `<a href='${myLeads[i]}' 
@@ -25,7 +26,9 @@ if(leadsfromstorage ){
 
 
  delbtn.addEventListener('dblclick',function(){
-    console.log("double clicked!")
+    localStorage.clear()
+    myLeads = []
+    render(myLeads)
  })
  
 
@@ -43,14 +46,9 @@ inputBtn.addEventListener("click", function() {
     else {
         let linkaddress = "https://" + inputEl.value;
         myLeads.push(linkaddress);  
-       
-     
         localStorage.setItem("myLeads", JSON.stringify(myLeads))
-
         clearlink();
-        renderleads();
-        
-        console.log(localStorage.getItem("myLeads"))
+        render(myLeads);
     }
 });
 function clearlink(){
