@@ -1,70 +1,59 @@
-// some coding for an extension....
+// Initialize variables
 let myLeads = [];
 let oldLeads = [];
-const inputEl = document.getElementById("input-el")
-const inputBtn = document.getElementById("save-btn")
-const ulEl = document.getElementById("ul-el")
-const delbtn = document.getElementById("del-btn")
- let myleadsstorage = JSON.stringify("myLeads") ;
+const inputEl = document.getElementById("input-el");
+const inputBtn = document.getElementById("save-btn");
+const ulEl = document.getElementById("ulel-leads");
+const ulELtabs = document.getElementById("ulel-tabs");
+const delbtn = document.getElementById("del-btn");
+const tabBtn = document.getElementById("tab-btn");
+const leadsfromstorage = JSON.parse(localStorage.getItem("myLeads"));
 
-let leadsfromstorage = JSON.parse(localStorage.getItem("myLeads"))
+// Load leads from localStorage if available
+if (leadsfromstorage) {
+    myLeads = leadsfromstorage;
+    render(myLeads);
+}
 
-if(leadsfromstorage ){
-    myLeads = leadsfromstorage
-    render(myLeads)
- }
+// Add event listener to the tab button
+tabBtn.addEventListener("click", function () {
+    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+        myLeads.push(tabs[0].url);
+        localStorage.setItem("myLeads", JSON.stringify(myLeads));
+        render(myLeads);
+    });
+});
 
- function render(myLeads) {
+// Render leads to the DOM
+function render(leads) {
     let listItems = "";
-    for (let i = 0; i < myLeads.length; i++) {
-        listItems += `<a href='${myLeads[i]}' 
-        target='_blank'><li>${myLeads[i]}
-        </li> </a>`
-      }
-    
-      ulEl.innerHTML = listItems}
+    for (let i = 0; i < leads.length; i++) {
+        listItems += `<a href='${leads[i]}' target='_blank'><li>${leads[i]}</li></a>`;
+    }
+    ulEl.innerHTML = listItems;
+}
 
+// Add event listener to the delete button
+delbtn.addEventListener('dblclick', function () {
+    localStorage.clear();
+    myLeads = [];
+    render(myLeads);
+});
 
- delbtn.addEventListener('dblclick',function(){
-    localStorage.clear()
-    myLeads = []
-    render(myLeads)
- })
- 
-
-// // local storage concepts *-
-// localStorage.setItem("myName","Muhammad Umer Alam")
-//  let myName = localStorage.getItem("myName")
-//  console.log(myName)//-*
-//  localStorage.clear(myName) 
-
-inputBtn.addEventListener("click", function() {
+// Add event listener to the input button
+inputBtn.addEventListener("click", function () {
     var inputOl = inputEl.value.trim();
-    if(inputOl === "") {
-        window.alert("Input value is empty")        
-    }   
-    else {
-        let linkaddress = "https://" + inputEl.value;
-        myLeads.push(linkaddress);  
-        localStorage.setItem("myLeads", JSON.stringify(myLeads))
+    if (inputOl === "") {
+        window.alert("Input value is empty");
+    } else {
+        myLeads.push(inputOl);
+        localStorage.setItem("myLeads", JSON.stringify(myLeads));
         clearlink();
         render(myLeads);
     }
 });
-function clearlink(){
-    document.getElementById("input-el").value = ""
+
+// Clear the input field
+function clearlink() {
+    inputEl.value = "";
 }
-
-
-
-
-
-  
-//   console.log( Boolean ("")) // falsy
-//   console.log( Boolean ("0"))// truthy
-//   console.log( Boolean (100))// truthy
-//   console.log( Boolean (null))// falsy
-//   console.log( Boolean([0]))// truthy
-//   console.log( Boolean (-0))//falsy
-
-  

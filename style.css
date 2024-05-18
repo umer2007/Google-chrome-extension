@@ -29,7 +29,7 @@ body{
 #save-btn:hover{ 
     background-color: white;
     color: blue;
-    transition: 0.1s;
+    transition: 0.2s;   
   }
 #del-btn{
         border: 2px solid black;
@@ -46,25 +46,84 @@ body{
 #del-btn:hover{
     background-color: white;
     color: blue;
-    transition: 0.1s;
+    transition: 0.2s;
 } 
 #container{
     border: #5f9341;
 }
-li{
-    text-decoration: dotted;
-    color: white;
-    font-weight: 600;
-}
-.buttons{
-    display: flex;
-    margin-top: 10px;
-    margin-left: -10px;
-}
+
 #del-btn{
     margin-left: 5px;
+}
+#tab-btn{
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 2px 8px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 300;
+    color: white;
+    background-color: rgb(93, 93, 236);
+    margin-left: -6px;
+    height: 32px;
+}   
+#tab-btn:hover{
+    background-color: white;
+    color: blue;
+    transition: 0.2s;
 }
 #instructions{
     flex-grow: 1;
     color: white;
+}   
+#ulel-tabs {
+    display: flex;
+    /* right: 2px; */
+    /* padding: 10px; */
+    
+    flex-direction: column;
+    /* border: solid black 2px; */
+    justify-content: flex-start; /* Center vertically */
+    align-items: center;  
+           /* Optional: make sure the container has width */
+}
+#ulel-tabs  li {
+    color: rgb(223, 128, 128);
+    /* left: -21px; */
+    position: relative;
+    /* padding: 2px; */
+    list-style: none;
+}
+#ulel-tabs  li:hover{
+    background-color: grey;
+    border: solid grey 1px;
+}
+#container-urls{
+    display: flex;
+    position: relative;
+    left: -12px;
+}
+#ulel-leads{
+    display: flex;
+    /* right: 2px; */
+    /* padding: 10px; */
+    flex-direction: column;
+    /* border: solid black 2px; */
+    justify-content: flex-start; /* Center vertically */
+    align-items: center;  
+           /* Optional: make sure the container has width */
+}
+#ulel-leads li{
+    color: rgb(223, 128, 128);
+    left: -21px;
+    position: relative;
+    /* padding: 2px; */
+    list-style: none;
+    
+}
+#ulel-leads li:hover{
+    background-color: grey;
+    border: solid gray 1px;
+}
+a{
+    text-decoration: none;
 }
